@@ -1,0 +1,6 @@
+// @flow
+export const SET_BASEMAP = 'SET_BASEMAP'
+export const SET_EXTENT = 'SET_EXTENT'
+export const SET_FEATURE_LAYER = 'SET_FEATURE_LAYER'
+export const SET_POSITION = 'SET_POSITION'
+export const SET_POSITION_FAILURE = 'SET_POSITION_FAILURE'

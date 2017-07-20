@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>arcgis-api-sandbox</title>
+    <link rel="stylesheet" href="//js.arcgis.com/4.4/esri/css/main.css">
+</head>
+<body>
+<div id="root"></div>
+<script>
+  // Ensures path ends in fwdslash.
+  var makePath = function (base, path) {
+    const position = base.length - 1
+    return !path ? (
+      base.indexOf('/', position) !== position ? base + '/' : base
+    ) : (
+      base.indexOf('/', position) !== position ? base + '/' + path : base + path
+    )
+  }
+  // Configure dojo loader
+  var dojoConfig = {
+    'parseOnLoad': false,
+    'async': true,
+    'packages': [
+      {
+        'name': 'js',
+        'location': makePath(makePath(location.href.replace(/\/[^/]+$/, '')), 'js')
+      }
+    ],
+    'deps': ['dojo/domReady!'],
+    callback: function () {
+      // Requires application AMD bundle given dependency (DOM is loaded).
+      require(['/static/js/bundle.js'])
+    }
+  }
+</script>
+<script src='//js.arcgis.com/4.4/' async></script>
+</body>
+</html>
