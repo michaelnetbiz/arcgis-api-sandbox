@@ -50,7 +50,6 @@ class Carto extends Component {
     this.esriMap = new EsriMap({
       'basemap': props.basemap
     })
-    console.log(chicagoRailroads, dmvRailroads)
   }
 
   handleBasemapSelection (event: window.Event, index: number, value: number) {
