@@ -2,6 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import webpack from 'webpack'
 
 const appRoot = fs.realpathSync(process.cwd())
 const resolver = (relPath) => {
@@ -20,7 +21,7 @@ const appPublicDir = resolver('public')
 const appIndexHtml = resolver('public/index.html')
 
 export default {
-  'devtool': 'eval',
+  'devtool': 'source-map',
   'devServer': {
     'contentBase': appPublicDir,
     'historyApiFallback': true,
@@ -138,6 +139,21 @@ export default {
       'filename': 'index.html',
       'inject': false,
       'template': appIndexHtml
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      'compress': {
+        'warnings': false,
+        'reduce_vars': false
+      },
+      'output': {
+        'comments': false
+      },
+      'sourceMap': true
     })
   ],
   'target': 'web'
