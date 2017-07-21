@@ -1,7 +1,7 @@
 // @flow
-export const DISMISSABLE = 'DISMISSABLE'
-export const FOCUSABLE = 'FOCUSABLE'
-export const UNACTIONABLE = 'UNACTIONABLE'
+export const DISMISSABLE = 'dismiss'
+export const FOCUSABLE = 'focus'
+export const UNACTIONABLE = ''
 export const ISSUE_AUTO_HIDE_DURATION = 4000
 
 export const createIssue = (issueMessage: string, issueType: string = DISMISSABLE) => {

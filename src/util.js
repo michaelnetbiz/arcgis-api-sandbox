@@ -4,6 +4,7 @@ import { fade } from 'material-ui/utils/colorManipulator'
 import { spacing } from 'material-ui/styles'
 
 export const APP_NAME = 'arcgis-api-sandbox'
+// TODO: remedy the lack of attribution
 export const DMV_RAILROADS_URI = 'https://catalog.data.gov/dataset/usgs-national-transportation-dataset-ntd-downloadable-data-collectionde7d2'
 export const CHICAGO_RAILROADS_URI = 'https://data.cityofchicago.org/Transportation/Railroads/mpdq-i9eh'
 export const APP_THEME = {
