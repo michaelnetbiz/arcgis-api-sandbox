@@ -1,6 +1,7 @@
 .idea
 .vscode
 /data
+dist
 node_modules
 preprocessing.js
 yarn-error.log
