@@ -13,6 +13,8 @@ import ActionMenu from './ActionMenu'
 import { APP_THEME } from '../../util'
 import {
   BASEMAPS,
+  CHICAGO_RAILROADS_FEATURE_LAYER_NAME,
+  DC_RAILROADS_FEATURE_LAYER_NAME,
   FEATURE_LAYERS,
   FEATURE_RESOURCES
 } from '../util'
@@ -63,7 +65,7 @@ class Carto extends Component {
   handleFeatureLayerSelection (event: window.Event, index: number, value: number) {
     const {dispatch} = this.props
     const featureLayer = Carto.getFeatureLayerName(value)
-    const issue = createIssue(`Setting basemap to: ${featureLayer}.`)
+    const issue = createIssue(`Setting feature layer to: ${featureLayer}.`)
     dispatch(setIssue(issue))
     dispatch(setFeatureLayer(featureLayer))
   }
@@ -91,7 +93,7 @@ class Carto extends Component {
   updateFeatureLayer (featureLayerName: string) {
     const {CHICAGO_RAILROADS, DMV_RAILROADS} = FEATURE_RESOURCES
     switch (featureLayerName) {
-      case 'chicagoRailroads': {
+      case CHICAGO_RAILROADS_FEATURE_LAYER_NAME: {
         let lyr
         const {EXTENT, FIELDS, POPUP_TEMPLATE, RENDERER} = CHICAGO_RAILROADS
         const getData = () => {
@@ -148,7 +150,7 @@ class Carto extends Component {
           )
         })
       }
-      case 'dmvRailroads': {
+      case DC_RAILROADS_FEATURE_LAYER_NAME: {
         let lyr
         const {EXTENT, FIELDS, POPUP_TEMPLATE, RENDERER} = DMV_RAILROADS
         const getData = () => {
@@ -284,6 +286,7 @@ class Carto extends Component {
   handleBasemapSelection: () => mixed
   handleFeatureLayerSelection: () => mixed
   handleGeolocationMenuItemTouchTap: () => mixed
+  goToCurrentPosition: () => mixed
   props: Object
 
   render () {

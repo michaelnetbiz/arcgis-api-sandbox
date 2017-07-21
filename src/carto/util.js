@@ -24,9 +24,12 @@ export const BASEMAPS = [
   'topo-vector'
 ]
 
+export const CHICAGO_RAILROADS_FEATURE_LAYER_NAME = 'Chicago Railroads'
+export const DC_RAILROADS_FEATURE_LAYER_NAME = 'D.C. Railroads'
+
 export const FEATURE_LAYERS = [
-  'chicagoRailroads',
-  'dmvRailroads'
+  CHICAGO_RAILROADS_FEATURE_LAYER_NAME,
+  DC_RAILROADS_FEATURE_LAYER_NAME
 ]
 
 const {accent1Color, accent2Color} = APP_THEME.palette

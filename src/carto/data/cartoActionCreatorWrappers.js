@@ -24,7 +24,7 @@ export const requestPosition = () => {
       })
       return dispatch(setPosition(point))
     }).catch((err: Object) => {
-      const issue = createIssue(`Not getting location: ${err.message}.`)
+      const issue = createIssue(`Error: ${err.message}.`)
       dispatch(setIssue(issue))
       return dispatch(setPositionFailure())
     })
